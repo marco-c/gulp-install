@@ -22,11 +22,15 @@ var through2 = require('through2'),
     }
   };
 
+var log = builtInLog;
+
 module.exports = exports = function install(opts) {
   var toRun = [],
     count = 0;
 
-  var log = opts.log || builtInLog;
+  if (opts && opts.log) {
+    log = opts.log;
+  }
 
   return through2({
       objectMode: true

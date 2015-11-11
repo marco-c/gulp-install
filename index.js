@@ -71,7 +71,7 @@ module.exports = exports = function install(opts) {
         return cb();
       } else {
         toRun.forEach(function(command) {
-          commandRunner.run(command, function(err) {
+          commandRunner.run(command, opts, function(err) {
             if (err) {
               log(err.message, ', run `' + gutil.colors.yellow(formatCommand(command)) + '` manually');
               return cb(err);

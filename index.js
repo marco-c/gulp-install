@@ -26,6 +26,8 @@ module.exports = exports = function install(opts) {
   var toRun = [],
     count = 0;
 
+  var log = opts.log || builtInLog;
+
   return through2({
       objectMode: true
     },
@@ -88,7 +90,7 @@ module.exports = exports = function install(opts) {
   }
 };
 
-function log() {
+function builtInLog() {
   if (isTest()) {
     return;
   }
